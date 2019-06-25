@@ -117,7 +117,7 @@ action :create do
 	  end
 	end
 
-        if u['ssh_keys']
+        if u['ssh_keys'] and new_resource.ssh_enabled
           template "#{home_dir}/.ssh/authorized_keys" do
             source "authorized_keys.erb"
             cookbook new_resource.cookbook
